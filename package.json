@@ -1,0 +1,45 @@
+{
+    "name": "javascript-snippets-self",
+    "displayName": "JavaScript-Snippets",
+    "description": "JavaScript Snippets for MDN",
+    "version": "0.0.2",
+    "icon": "icon/javascript.png",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "galleryBanner": {
+        "color": "#0273D4",
+        "theme": "dark"
+    },
+    "publisher": "jwy",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+                "language": "typescript",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    },
+    "repository": "https://github.com/jwyGithub/JavaScript-Snippets.git",
+    "homepage": "https://github.com/jwyGithub/JavaScript-Snippets/readme",
+    "license": "SEE LICENSE IN LICENSE",
+    "devDependencies": {
+        "@types/node": "^17.0.21",
+        "prettier": "^2.5.1"
+    }
+}
