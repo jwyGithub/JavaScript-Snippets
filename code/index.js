@@ -9,6 +9,7 @@ const arraySnippets = require('./array.js');
 const promiseSnippets = require('./promise.js');
 const proxySnippets = require('./proxy.js');
 const consoleSnippets = require('./console.js');
+const importSnippets = require('./import.js');
 
 const prettierOptions = {
     arrowParens: 'avoid',
@@ -59,6 +60,10 @@ const generator = () => {
             snippets = { ...snippets, ..._snippet };
         });
         consoleSnippets.forEach(item => {
+            const _snippet = format(item);
+            snippets = { ...snippets, ..._snippet };
+        });
+        importSnippets.forEach(item => {
             const _snippet = format(item);
             snippets = { ...snippets, ..._snippet };
         });

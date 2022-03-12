@@ -168,5 +168,40 @@
         "prefix": "Proxy",
         "body": "const p = new Proxy($1, {\r\n    get: function (target, key) {\r\n        return target[key] || target.getItem(key) || undefined;\r\n    },\r\n    set: function (target, key, value) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.setItem(key, value);\r\n    },\r\n    deleteProperty: function (target, key) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.removeItem(key);\r\n    },\r\n    enumerate: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    ownKeys: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    has: function (target, key) {\r\n        return key in target || target.hasItem(key);\r\n    },\r\n    defineProperty: function (target, key, oDesc) {\r\n        if (oDesc && 'value' in oDesc) {\r\n            target.setItem(key, oDesc.value);\r\n        }\r\n        return target;\r\n    },\r\n    getOwnPropertyDescriptor: function (target, key) {\r\n        var vValue = target.getItem(key);\r\n        return vValue\r\n            ? {\r\n                  value: vValue,\r\n                  writable: true,\r\n                  enumerable: true,\r\n                  configurable: false\r\n              }\r\n            : undefined;\r\n    }\r\n});\r\n",
         "description": "Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。"
+    },
+    "console.log()": {
+        "prefix": "clg",
+        "body": "console.log($1, `$1`);\r\n",
+        "description": ""
+    },
+    "console.group()": {
+        "prefix": "clgr",
+        "body": "console.group('第一层');\r\nconsole.group('第二层');\r\n\r\nconsole.log('error');\r\nconsole.error('error');\r\nconsole.warn('error');\r\n\r\nconsole.groupEnd();\r\nconsole.groupEnd();\r\n",
+        "description": "用于将显示的信息分组，可以把信息进行折叠和展开。"
+    },
+    "console.table()": {
+        "prefix": "clt",
+        "body": "console.table($1);\r\n",
+        "description": "将复合类型的数据转为表格显示。"
+    },
+    "console.time()": {
+        "prefix": "cltime",
+        "body": "console.time('start time');\r\n$1;\r\nconsole.timeEnd('end time');\r\n",
+        "description": "计时器"
+    },
+    "import moduleName from 'module'": {
+        "prefix": "imm",
+        "body": "import $1 from '$2';\r\n",
+        "description": "ES module 引入默认模块"
+    },
+    "import { module } from module": {
+        "prefix": "imm",
+        "body": "import { $1 } from '$2';\r\n",
+        "description": "ES module 按需引入模块"
+    },
+    "import * as module from 'module'": {
+        "prefix": "imam",
+        "body": "import * as $1 from '$2';\r\n",
+        "description": "ES module 引入全部模块"
     }
 }
