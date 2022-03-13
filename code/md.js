@@ -11,16 +11,17 @@ let str = '';
     str += `| \`${item.prefix}\` | ${item.description} |\r\n`;
 });
 
-let arrStr = `<table border style="font-size:12px;"><tr>
-<td width="200">snippet prefix</td>
-<td width="200">function</td>
-<td>Description</td>
-</tr>`;
+let arrStr = `<table border>
+                <tr style="font-weight:bold">
+                    <td width="200">Snippet prefix</td>
+                    <td width="200">Specification</td>
+                    <td>Description</td>
+                </tr>`;
 
 importSnippets.forEach(item => {
-    arrStr += `<tr>
-                    <td width='200' style="color:#1296db;font-weight:bold">${item.prefix}</td>
-                    <td width='200' style="color:#1296db;font-weight:bold">${item.key}</td>
+    arrStr += `<tr style="color:#1296db;">
+                    <td width='200'>${item.prefix}</td>
+                    <td width='200'>${item.specification || ''}</td>
                     <td>${item.description}</td>
                 </tr>`;
 });

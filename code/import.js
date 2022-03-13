@@ -3,6 +3,7 @@ const importSnippets = [
         key: "import moduleName from 'module'",
         prefix: 'imm',
         body: `import $1 from '$2';`,
+        specification: '',
         description: 'ES module 引入默认模块'
     },
     {
@@ -15,6 +16,7 @@ const importSnippets = [
         key: "import * as module from 'module'",
         prefix: 'imam',
         body: `import * as $1 from '$2';`,
+        specification: '',
         description: 'ES module 引入全部模块'
     }
 ];
