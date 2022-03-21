@@ -2,7 +2,10 @@
     "name": "javascript-snippets-self",
     "displayName": "JavaScript-Snippets",
     "description": "JavaScript Snippets for MDN",
-    "version": "0.0.5",
+    "version": "0.0.6",
+    "scripts": {
+        "build": "node src/index.js && node src/output/markdown.js"
+    },
     "icon": "icon/javascript.png",
     "engines": {
         "vscode": "^1.65.0"

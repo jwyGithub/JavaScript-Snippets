@@ -1,48 +1,8 @@
 {
-    "Object.keys": {
-        "prefix": "Object.keys",
-        "body": "Object.keys($1).forEach((key, index) => {});\r\n",
-        "description": "Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致"
-    },
-    "Object.values": {
-        "prefix": "Object.values",
-        "body": "Object.values($1).forEach((value, index) => {});\r\n",
-        "description": "Object.values()方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for...in循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )。"
-    },
-    "Object.entries": {
-        "prefix": "Object.entries",
-        "body": "Object.entries($1).forEach(([key, value], index) => {});\r\n",
-        "description": "Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环还会枚举原型链中的属性）。"
-    },
-    "Object.assign": {
-        "prefix": "Object.assign",
-        "body": "Object.assign($1, $2);\r\n",
-        "description": "Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。"
-    },
-    "Object.freeze": {
-        "prefix": "Object.freeze",
-        "body": "Object.freeze($1);\r\n",
-        "description": "Object.freeze() 方法可以冻结一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。freeze() 返回和传入的参数相同的对象。"
-    },
-    "Object.is": {
-        "prefix": "Object.is",
-        "body": "Object.is($1, $2);\r\n",
-        "description": "Object.is() 方法判断两个值是否为同一个值。"
-    },
-    "Object.prototype.toString": {
-        "prefix": "Object.prototype.toString",
-        "body": "Object.prototype.toString.call($1);\r\n",
-        "description": "toString() 方法返回一个表示该对象的字符串。"
-    },
-    "Object.defineProperty": {
-        "prefix": "Object.defineProperty",
-        "body": "Object.defineProperty($1, $2, {\r\n    // 只有该属性描述符的类型可以被改变并且该属性可以从对应对象中删除,默认为 false\r\n    configurable: true,\r\n    // 只有在枚举相应对象上的属性时该属性显现,默认为 false\r\n    enumerable: true,\r\n    // 与属性关联的值。可以是任何有效的JavaScript值（数字，对象，函数等）\r\n    value: undefined,\r\n    // 只有与该属性相关联的值被assignment operator (en-US)改变时\r\n    writable: true,\r\n    // 作为该属性的 getter 函数，如果没有 getter 则为undefined。函数返回值将被用作属性的值。\r\n    get() {\r\n        return $1[$2];\r\n    },\r\n    // 作为属性的 setter 函数，如果没有 setter 则为undefined。函数将仅接受参数赋值给该属性的新值。\r\n    set(value) {\r\n        $1[$2] = value;\r\n    }\r\n});\r\n",
-        "description": "Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。"
-    },
     "Array.prototype.at": {
         "prefix": "Array.prototype.at",
         "body": "const arrayItem = $1.at($2);\r\n",
-        "description": "at() 方法接收一个整数值并返回该索引的项目，允许正数和负数。负整数从数组中的最后一个项目开始倒数。"
+        "description": "at()方法接收一个整数值并返回该索引的项目，允许正数和负数。负整数从数组中的最后一个项目开始倒数。"
     },
     "Array.prototype.concat": {
         "prefix": "Array.prototype.concat",
@@ -117,57 +77,82 @@
     "Array.prototype.join": {
         "prefix": "Array.prototype.join",
         "body": "const str = $1.join($2);\r\n",
-        "description": "join()方法通过连接数组（或类似数组的对象）中的所有元素（用逗号或指定的分隔符字符串分隔）来创建并返回一个新字符串。如果数组只有一个项目，则在不使用分隔符的情况下返回该项目"
+        "description": "join()方法通过连接数组(或类似数组的对象)中的所有元素(用逗号或指定的分隔符字符串分隔)来创建并返回一个新字符串。如果数组只有一个项目，则在不使用分隔符的情况下返回该项目"
     },
     "Array.prototype.keys": {
         "prefix": "Array.prototype.keys",
         "body": "const iterator = $1.keys();\r\nfor (const key of iterator) {\r\n    console.log(key);\r\n}\r\n",
-        "description": "keys方法返回一个新的数组迭代器对象，该对象包含数组中每个索引的键。"
+        "description": "keys()方法返回一个包含数组中每个索引键的Array Iterator对象。"
     },
     "Array.prototype.lastIndexOf": {
         "prefix": "Array.prototype.lastIndexOf",
-        "body": "const index = $1.lastIndexOf($2);\r\n",
-        "description": "lastIndexOf方法返回可在数组中找到给定元素的最后一个索引，如果不存在，则返回 -1。向后搜索数组，从 开始。fromIndex"
+        "body": "const index = $1.lastIndexOf($2, fromIndex);\r\n",
+        "description": "lastIndexOf()方法返回指定元素(也即有效的 JavaScript 值或变量)在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。"
     },
     "Array.prototype.map": {
         "prefix": "Array.prototype.map",
         "body": "const result = $1.map((item, index, array) => {\r\n    console.log(item, 'item');\r\n    console.log(index, 'index');\r\n    console.log(array, 'array');\r\n}, this);\r\n",
-        "description": "map() 方法创建一个新数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。"
+        "description": "map()方法创建一个新数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。"
+    },
+    "Array.prototype.of": {
+        "prefix": "Array.prototype.of",
+        "body": "const arr = Array.of(1, 2, 3);\r\n",
+        "description": "Array.of() 方法创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。"
+    },
+    "Array.prototype.pop": {
+        "prefix": "Array.prototype.pop",
+        "body": "const result = $1.pop();\r\n",
+        "description": "pop()方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。"
+    },
+    "Array.prototype.push": {
+        "prefix": "Array.prototype.push",
+        "body": "const result = $1.push('$2');\r\n",
+        "description": "push()方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度"
     },
     "Array.prototype.reduce": {
         "prefix": "Array.prototype.reduce",
         "body": "const result = $1.reduce((pre, cur, index, array) => {\r\n    return pre;\r\n}, []);\r\n",
-        "description": "reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。"
+        "description": "reduce()方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值"
     },
     "Array.prototype.reduceRight": {
         "prefix": "Array.prototype.reduceRight",
         "body": "const result = $1.reduceRight((acc, cur, idx, arr) => {\r\n    return acc;\r\n}, []);\r\n",
-        "description": "reduceRight() 方法接受一个函数作为累加器（accumulator）和数组的每个值（从右到左）将其减少为单个值。"
+        "description": "reduceRight()方法接受一个函数作为累加器(accumulator)和数组的每个值(从右到左)将其减少为单个值"
     },
-    "Promise": {
-        "prefix": "Promise-then-catch-fially",
-        "body": "new Promise((resolve, reject) => {})\r\n    .then(() => {})\r\n    .catch(error => {\r\n        console.log(error);\r\n    })\r\n    .finally(() => {});\r\n",
-        "description": "Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。"
+    "Array.prototype.reverse": {
+        "prefix": "Array.prototype.reverse",
+        "body": "const result = $1.reverse();\r\n",
+        "description": "reverse()方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法会改变原数组。"
     },
-    "Promise.all": {
-        "prefix": "Promise.all",
-        "body": "Promise.all($1)\r\n    .then(res => {\r\n        console.log(res, 'res');\r\n    })\r\n    .catch(err => {\r\n        console.log(err, 'err');\r\n    })\r\n    .finally(() => {});\r\n",
-        "description": "Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。"
+    "Array.prototype.shift": {
+        "prefix": "Array.prototype.shift",
+        "body": "const result = $1.shift();\r\n",
+        "description": "shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。"
     },
-    "Promise.allSettled": {
-        "prefix": "Promise.allSettled",
-        "body": "Promise.allSettled($1).then(results => results.forEach(result => console.log(result.status)));\r\n",
-        "description": "该Promise.allSettled()方法返回一个在所有给定的promise都已经fulfilled或rejected后的promise，并带有一个对象数组，每个对象表示对应的promise结果。"
+    "Array.prototype.slice": {
+        "prefix": "Array.prototype.slice",
+        "body": "const result = $1.slice('begin', 'end');\r\n",
+        "description": "slice() 方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝(包括 begin，不包括end)。原始数组不会被改变。"
     },
-    "Promise.race": {
-        "prefix": "Promise.race",
-        "body": "Promise.race($1).then(value => {\r\n    console.log(value);\r\n});\r\n",
-        "description": "Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。"
+    "Array.prototype.some": {
+        "prefix": "Array.prototype.some",
+        "body": "const flag = $1.some((item, index, array) => {}, thisArg);\r\n",
+        "description": "some()方法测试数组中是不是至少有1个元素通过了被提供的函数测试。它返回的是一个Boolean类型的值。"
     },
-    "Proxy": {
-        "prefix": "Proxy",
-        "body": "const p = new Proxy($1, {\r\n    get: function (target, key) {\r\n        return target[key] || target.getItem(key) || undefined;\r\n    },\r\n    set: function (target, key, value) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.setItem(key, value);\r\n    },\r\n    deleteProperty: function (target, key) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.removeItem(key);\r\n    },\r\n    enumerate: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    ownKeys: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    has: function (target, key) {\r\n        return key in target || target.hasItem(key);\r\n    },\r\n    defineProperty: function (target, key, oDesc) {\r\n        if (oDesc && 'value' in oDesc) {\r\n            target.setItem(key, oDesc.value);\r\n        }\r\n        return target;\r\n    },\r\n    getOwnPropertyDescriptor: function (target, key) {\r\n        var vValue = target.getItem(key);\r\n        return vValue\r\n            ? {\r\n                  value: vValue,\r\n                  writable: true,\r\n                  enumerable: true,\r\n                  configurable: false\r\n              }\r\n            : undefined;\r\n    }\r\n});\r\n",
-        "description": "Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。"
+    "Array.prototype.sort": {
+        "prefix": "Array.prototype.sort",
+        "body": "const flag = $1.sort((a, b) => a - b);\r\n",
+        "description": "sort() 方法用原地算法对数组的元素进行排序，并返回数组。"
+    },
+    "Array.prototype.splice": {
+        "prefix": "Array.prototype.splice",
+        "body": "const flag = $1.splice('start', 'deleteCount', 'item');\r\n",
+        "description": "splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。"
+    },
+    "Array.prototype.unshift": {
+        "prefix": "Array.prototype.unshift",
+        "body": "const length = $1.unshift($2);\r\n",
+        "description": "unshift()方法将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组)。"
     },
     "console.log()": {
         "prefix": "clg",
@@ -203,5 +188,100 @@
         "prefix": "imam",
         "body": "import * as $1 from '$2';\r\n",
         "description": "ES module 引入全部模块"
+    },
+    "Object.keys": {
+        "prefix": "Object.keys",
+        "body": "Object.keys($1).forEach((key, index) => {});\r\n",
+        "description": "Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致"
+    },
+    "Object.values": {
+        "prefix": "Object.values",
+        "body": "Object.values($1).forEach((value, index) => {});\r\n",
+        "description": "Object.values()方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for...in循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )。"
+    },
+    "Object.entries": {
+        "prefix": "Object.entries",
+        "body": "Object.entries($1).forEach(([key, value], index) => {});\r\n",
+        "description": "Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致(区别在于 for-in 循环还会枚举原型链中的属性)。"
+    },
+    "Object.assign": {
+        "prefix": "Object.assign",
+        "body": "Object.assign({}, $1, $2);\r\n",
+        "description": "Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。"
+    },
+    "Object.freeze": {
+        "prefix": "Object.freeze",
+        "body": "Object.freeze($1);\r\n",
+        "description": "Object.freeze() 方法可以冻结一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。freeze() 返回和传入的参数相同的对象。"
+    },
+    "Object.is": {
+        "prefix": "Object.is",
+        "body": "Object.is($1, $2);\r\n",
+        "description": "Object.is() 方法判断两个值是否为同一个值。"
+    },
+    "Object.prototype.toString": {
+        "prefix": "Object.prototype.toString",
+        "body": "Object.prototype.toString.call($1);\r\n",
+        "description": "toString() 方法返回一个表示该对象的字符串。"
+    },
+    "Object.prototype.hasOwnProperty": {
+        "prefix": "Object.prototype.hasOwnProperty",
+        "body": "$1.hasOwnProperty($2);\r\n",
+        "description": "hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性(也就是，是否有指定的键)。"
+    },
+    "Object.getOwnPropertyDescriptor": {
+        "prefix": "Object.getOwnPropertyDescriptor",
+        "body": "Object.getOwnPropertyDescriptor($1, $2);\r\n",
+        "description": "Object.getOwnPropertyDescriptor() 方法返回指定对象上一个自有属性对应的属性描述符。(自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性)"
+    },
+    "Object.getOwnPropertyNames": {
+        "prefix": "Object.getOwnPropertyNames",
+        "body": "Object.getOwnPropertyNames($1);\r\n",
+        "description": "Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名(包括不可枚举属性但不包括Symbol值作为名称的属性)组成的数组。"
+    },
+    "Object.defineProperty": {
+        "prefix": "Object.defineProperty",
+        "body": "Object.defineProperty($1, $2, {\r\n    // 只有该属性描述符的类型可以被改变并且该属性可以从对应对象中删除,默认为 false\r\n    configurable: true,\r\n    // 只有在枚举相应对象上的属性时该属性显现,默认为 false\r\n    enumerable: true,\r\n    // 与属性关联的值。可以是任何有效的JavaScript值(数字，对象，函数等)\r\n    value: undefined,\r\n    // 只有与该属性相关联的值被assignment operator (en-US)改变时\r\n    writable: true,\r\n    // 作为该属性的 getter 函数，如果没有 getter 则为undefined。函数返回值将被用作属性的值。\r\n    get() {\r\n        return $1[$2];\r\n    },\r\n    // 作为属性的 setter 函数，如果没有 setter 则为undefined。函数将仅接受参数赋值给该属性的新值。\r\n    set(value) {\r\n        $1[$2] = value;\r\n    }\r\n});\r\n",
+        "description": "Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。"
+    },
+    "Promise": {
+        "prefix": "Promise-then-catch-finally",
+        "body": "new Promise((resolve, reject) => {})\r\n    .then(() => {})\r\n    .catch(error => {\r\n        console.log(error);\r\n    })\r\n    .finally(() => {});\r\n",
+        "description": "Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。"
+    },
+    "Promise.all": {
+        "prefix": "Promise.all",
+        "body": "Promise.all($1)\r\n    .then(res => {\r\n        console.log(res, 'res');\r\n    })\r\n    .catch(err => {\r\n        console.log(err, 'err');\r\n    })\r\n    .finally(() => {});\r\n",
+        "description": "Promise.all() 方法接收一个promise的iterable类型(注:Array，Map，Set都属于ES6的iterable类型)的输入，并且只返回一个Promise实例， 那个输入的所有promise的resolve回调的结果是一个数组。这个Promise的resolve回调执行是在所有输入的promise的resolve回调都结束，或者输入的iterable里没有promise了的时候。它的reject回调执行是，只要任何一个输入的promise的reject回调执行或者输入不合法的promise就会立即抛出错误，并且reject的是第一个抛出的错误信息"
+    },
+    "Promise.allSettled": {
+        "prefix": "Promise.allSettled",
+        "body": "Promise.allSettled($1).then(results => results.forEach(result => console.log(result.status)));\r\n",
+        "description": "该Promise.allSettled()方法返回一个在所有给定的promise都已经fulfilled或rejected后的promise，并带有一个对象数组，每个对象表示对应的promise结果。当您有多个彼此不依赖的异步任务成功完成时，或者您总是想知道每个promise的结果时，通常使用它。"
+    },
+    "Promise.any": {
+        "prefix": "Promise.any",
+        "body": "Promise.any($1).then(result => console.log(result));\r\n",
+        "description": "Promise.any() 接收一个Promise可迭代对象，只要其中的一个 promise 成功，就返回那个已经成功的 promise 。如果可迭代对象中没有一个 promise 成功（即所有的 promises 都失败/拒绝），就返回一个失败的 promise 和AggregateError类型的实例，它是 Error 的一个子类，用于把单一的错误集合在一起。本质上，这个方法和Promise.all()是相反的。"
+    },
+    "Promise.race": {
+        "prefix": "Promise.race",
+        "body": "Promise.race($1).then(value => {\r\n    console.log(value);\r\n});\r\n",
+        "description": "Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。"
+    },
+    "Proxy": {
+        "prefix": "Proxy",
+        "body": "const p = new Proxy($1, {\r\n    get: function (target, key) {\r\n        return target[key] || target.getItem(key) || undefined;\r\n    },\r\n    set: function (target, key, value) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.setItem(key, value);\r\n    },\r\n    deleteProperty: function (target, key) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.removeItem(key);\r\n    },\r\n    enumerate: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    ownKeys: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    has: function (target, key) {\r\n        return key in target || target.hasItem(key);\r\n    },\r\n    defineProperty: function (target, key, oDesc) {\r\n        if (oDesc && 'value' in oDesc) {\r\n            target.setItem(key, oDesc.value);\r\n        }\r\n        return target;\r\n    },\r\n    getOwnPropertyDescriptor: function (target, key) {\r\n        var vValue = target.getItem(key);\r\n        return vValue\r\n            ? {\r\n                  value: vValue,\r\n                  writable: true,\r\n                  enumerable: true,\r\n                  configurable: false\r\n              }\r\n            : undefined;\r\n    }\r\n});\r\n",
+        "description": "Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。"
+    },
+    "const module = require(module)": {
+        "prefix": "rmm",
+        "body": "const $1 = require('$1');\r\n",
+        "description": "commonJS引入默认模块"
+    },
+    "const {  } = require(module)": {
+        "prefix": "rmm",
+        "body": "const {} = require('$1');\r\n",
+        "description": "commonJS按需引入模块"
     }
 }
