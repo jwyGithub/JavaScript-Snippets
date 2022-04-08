@@ -19,7 +19,7 @@ const generator = () => {
     try {
         let snippets = fs.readdirSync(snippetsRoot, { withFileTypes: true }).reduce((pre, item) => {
             const path = resolve(__dirname, snippetsRoot, item.name);
-            require(path).forEach(item => {
+            require(path).snippets.forEach(item => {
                 const _snippet = format(item);
                 pre = { ...pre, ..._snippet };
             });
@@ -33,3 +33,4 @@ const generator = () => {
 };
 
 generator();
+

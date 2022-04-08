@@ -21,4 +21,9 @@ const importSnippets = [
     }
 ];
 
-module.exports = importSnippets;
+module.exports = {
+    type: 'import',
+    snippets: importSnippets,
+    columns: ['Snippet prefix', 'Code', 'Description']
+};
+

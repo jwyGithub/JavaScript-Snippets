@@ -61,4 +61,9 @@ const promiseSnippets = [
     }
 ];
 
-module.exports = promiseSnippets;
+module.exports = {
+    type: 'Promise',
+    snippets: promiseSnippets,
+    columns: ['Snippet prefix', 'Specification', 'Description']
+};
+

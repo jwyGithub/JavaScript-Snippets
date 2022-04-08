@@ -50,4 +50,5 @@ const proxySnippets = [
     }
 ];
 
-module.exports = proxySnippets;
+module.exports = { type: 'Proxy', snippets: proxySnippets, columns: ['Snippet prefix', 'Specification', 'Description'] };
+

@@ -24,7 +24,6 @@ const markdownBody = body => {
   </a>
   <a href="https://github.com/jwyGithub/JavaScript-Snippets/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/jwyGithub/JavaScript-Snippets?style=square" alt="">
-    
   </a>
 </p>
 
@@ -51,3 +50,4 @@ try {
 } catch (error) {
     console.log(error);
 }
+

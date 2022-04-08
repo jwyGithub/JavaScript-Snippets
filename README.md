@@ -17,13 +17,12 @@
   </a>
   <a href="https://github.com/jwyGithub/JavaScript-Snippets/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/jwyGithub/JavaScript-Snippets?style=square" alt="">
-    
   </a>
 </p>
 
 ## Snippets
 
-> Array.js
+> Array
 
 <table border>
     <tr style="font-weight: bold">
@@ -189,64 +188,7 @@
 </table>
 <br />
 
-> console.js
-
-<table border>
-    <tr style="font-weight: bold">
-        <td width="200">Snippet prefix</td>
-        <td width="200">Specification</td>
-        <td>Description</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>clg</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>clgr</td>
-        <td></td>
-        <td>用于将显示的信息分组，可以把信息进行折叠和展开。</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>clt</td>
-        <td></td>
-        <td>将复合类型的数据转为表格显示。</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>cltime</td>
-        <td></td>
-        <td>计时器</td>
-    </tr>
-</table>
-<br />
-
-> import.js
-
-<table border>
-    <tr style="font-weight: bold">
-        <td width="200">Snippet prefix</td>
-        <td width="200">Specification</td>
-        <td>Description</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>imm</td>
-        <td></td>
-        <td>ES module 引入默认模块</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>imm</td>
-        <td></td>
-        <td>ES module 按需引入模块</td>
-    </tr>
-    <tr style="color: #1296db">
-        <td>imam</td>
-        <td></td>
-        <td>ES module 引入全部模块</td>
-    </tr>
-</table>
-<br />
-
-> Object.js
+> Object
 
 <table border>
     <tr style="font-weight: bold">
@@ -316,7 +258,7 @@
 </table>
 <br />
 
-> Promise.js
+> Promise
 
 <table border>
     <tr style="font-weight: bold">
@@ -360,7 +302,7 @@
 </table>
 <br />
 
-> Proxy.js
+> Proxy
 
 <table border>
     <tr style="font-weight: bold">
@@ -376,22 +318,79 @@
 </table>
 <br />
 
-> require.js
+> console
 
 <table border>
     <tr style="font-weight: bold">
         <td width="200">Snippet prefix</td>
-        <td width="200">Specification</td>
+        <td width="200">Code</td>
+        <td>Description</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>clg</td>
+        <td>console.log()</td>
+        <td></td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>clgr</td>
+        <td>console.group()</td>
+        <td>用于将显示的信息分组，可以把信息进行折叠和展开。</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>clt</td>
+        <td>console.table()</td>
+        <td>将复合类型的数据转为表格显示。</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>cltime</td>
+        <td>console.time()</td>
+        <td>计时器</td>
+    </tr>
+</table>
+<br />
+
+> import
+
+<table border>
+    <tr style="font-weight: bold">
+        <td width="200">Snippet prefix</td>
+        <td width="200">Code</td>
+        <td>Description</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>imm</td>
+        <td>import moduleName from 'module'</td>
+        <td>ES module 引入默认模块</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>imm</td>
+        <td>import { module } from module</td>
+        <td>ES module 按需引入模块</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>imam</td>
+        <td>import * as module from 'module'</td>
+        <td>ES module 引入全部模块</td>
+    </tr>
+</table>
+<br />
+
+> require
+
+<table border>
+    <tr style="font-weight: bold">
+        <td width="200">Snippet prefix</td>
+        <td width="200">Code</td>
         <td>Description</td>
     </tr>
     <tr style="color: #1296db">
         <td>rmm</td>
-        <td></td>
+        <td>const module = require(module)</td>
         <td>commonJS引入默认模块</td>
     </tr>
     <tr style="color: #1296db">
         <td>rmm</td>
-        <td></td>
+        <td>const { } = require(module)</td>
         <td>commonJS按需引入模块</td>
     </tr>
 </table>

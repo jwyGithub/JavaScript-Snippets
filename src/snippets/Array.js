@@ -230,4 +230,9 @@ const arraySnippets = [
     }
 ];
 
-module.exports = arraySnippets;
+module.exports = {
+    type: 'Array',
+    snippets: arraySnippets,
+    columns: ['Snippet prefix', 'Specification', 'Description']
+};
+

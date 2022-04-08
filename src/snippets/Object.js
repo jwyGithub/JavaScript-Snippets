@@ -97,4 +97,5 @@ const objectSnippets = [
     }
 ];
 
-module.exports = objectSnippets;
+module.exports = { type: 'Object', snippets: objectSnippets, columns: ['Snippet prefix', 'Specification', 'Description'] };
+

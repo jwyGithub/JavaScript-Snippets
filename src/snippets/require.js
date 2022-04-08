@@ -15,4 +15,5 @@ const requireSnippets = [
     }
 ];
 
-module.exports = requireSnippets;
+module.exports = { type: 'require', snippets: requireSnippets, columns: ['Snippet prefix', 'Code', 'Description'] };
+

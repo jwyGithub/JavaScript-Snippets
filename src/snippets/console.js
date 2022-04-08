@@ -35,4 +35,5 @@ const consoleSnippets = [
     }
 ];
 
-module.exports = consoleSnippets;
+module.exports = { type: 'console', snippets: consoleSnippets, columns: ['Snippet prefix', 'Code', 'Description'] };
+

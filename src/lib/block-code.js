@@ -1,9 +1,16 @@
-exports.tableStr = content => {
+exports.tableStr = (content, columns) => {
     return `<table border>
                 <tr style="font-weight:bold">
-                    <td width="200">Snippet prefix</td>
-                    <td width="200">Specification</td>
-                    <td>Description</td>
+                    ${(() => {
+                        return columns.reduce((pre, cur) => {
+                            if (cur === 'Description') {
+                                pre += `<td>${cur}</td>`;
+                            } else {
+                                pre += `<td width="200">${cur}</td>`;
+                            }
+                            return pre;
+                        }, '');
+                    })()}
                 </tr>
             ${content}
             </table><br/>`;
@@ -19,15 +26,25 @@ exports.tdStr = arrContent => {
     }, '');
 };
 
-exports.htmlMd = (snippets, type) => {
+const keyMap = new Map([
+    ['Code', 'key'],
+    ['Snippet prefix', 'prefix'],
+    ['body', 'body'],
+    ['Specification', 'specification'],
+    ['Description', 'description']
+]);
+
+exports.htmlMd = ({ type: _type, snippets, columns }, type) => {
     return (
         '\n' +
-        `> ${type}` +
+        `> ${_type}` +
         '\n' +
         this.tableStr(
             snippets.reduce((pre, item, index, array) => {
-                return pre + this.trStr(this.tdStr([item.prefix, item.specification || '', item.description]));
-            }, '')
+                return pre + this.trStr(this.tdStr([item.prefix, item[keyMap.get(columns[1])] || '', item.description]));
+            }, ''),
+            columns
         )
     );
 };
+
