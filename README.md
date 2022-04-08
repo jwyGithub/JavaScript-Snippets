@@ -1,6 +1,6 @@
 # JavaScript Snippets
 
-> JavaScript Snippets for MDN
+> JavaScript Snippets for MDN and Lib
 
 <p align="center">
   <img src="https://images.cnblogs.com/cnblogs_com/jwyblogs/1576071/o_220312063215_javascript.png" alt="icon">
@@ -314,6 +314,37 @@
         <td>Proxy</td>
         <td>ECMAScript 2017 (ECMA-262)</td>
         <td>Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。</td>
+    </tr>
+</table>
+<br />
+
+> axios
+
+<table border>
+    <tr style="font-weight: bold">
+        <td width="200">Snippet prefix</td>
+        <td width="200">Code</td>
+        <td>Description</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>axios.create</td>
+        <td>axios.create()</td>
+        <td>创建一个新的 axios 实例</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>axios.get</td>
+        <td>axios.get()</td>
+        <td>GET 请求</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>axios.post</td>
+        <td>axios.post()</td>
+        <td>取消请求</td>
+    </tr>
+    <tr style="color: #1296db">
+        <td>controller.abort</td>
+        <td>controller.abort()</td>
+        <td>取消请求</td>
     </tr>
 </table>
 <br />

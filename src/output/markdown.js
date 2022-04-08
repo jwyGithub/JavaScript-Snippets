@@ -7,7 +7,7 @@ const snippetsRoot = resolve(__dirname, '../snippets/');
 const markdownBody = body => {
     return `# JavaScript Snippets
 
-> JavaScript Snippets for MDN
+> JavaScript Snippets for MDN and Lib
 
 <p align="center">
   <img src="https://images.cnblogs.com/cnblogs_com/jwyblogs/1576071/o_220312063215_javascript.png" alt="icon">

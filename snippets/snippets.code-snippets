@@ -239,6 +239,26 @@
         "body": "const p = new Proxy($1, {\r\n    get: function (target, key) {\r\n        return target[key] || target.getItem(key) || undefined;\r\n    },\r\n    set: function (target, key, value) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.setItem(key, value);\r\n    },\r\n    deleteProperty: function (target, key) {\r\n        if (key in target) {\r\n            return false;\r\n        }\r\n        return target.removeItem(key);\r\n    },\r\n    enumerate: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    ownKeys: function (target, key) {\r\n        return target.keys();\r\n    },\r\n    has: function (target, key) {\r\n        return key in target || target.hasItem(key);\r\n    },\r\n    defineProperty: function (target, key, oDesc) {\r\n        if (oDesc && 'value' in oDesc) {\r\n            target.setItem(key, oDesc.value);\r\n        }\r\n        return target;\r\n    },\r\n    getOwnPropertyDescriptor: function (target, key) {\r\n        var vValue = target.getItem(key);\r\n        return vValue\r\n            ? {\r\n                  value: vValue,\r\n                  writable: true,\r\n                  enumerable: true,\r\n                  configurable: false\r\n              }\r\n            : undefined;\r\n    }\r\n});\r\n",
         "description": "Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。"
     },
+    "axios.create()": {
+        "prefix": "axios.create",
+        "body": "const axiosInstance = axios.create({\r\n    // 'baseURL' 将自动加在 'url' 前面，除非 'url' 是一个绝对 URL。\r\n    // 它可以通过设置一个 'baseURL' 便于为 axios 实例的方法传递相对 URL\r\n    baseURL: '',\r\n    method: 'GET',\r\n    // 'transformRequest' 允许在向服务器发送前，修改请求数据\r\n    transformRequest: [\r\n        function (data, headers) {\r\n            // 对发送的 data 进行任意转换处理\r\n            return data;\r\n        }\r\n    ],\r\n    // 'transformResponse' 在传递给 then/catch 前，允许修改响应数据\r\n    transformResponse: [\r\n        function (data) {\r\n            // 对接收的 data 进行任意转换处理\r\n            return data;\r\n        }\r\n    ],\r\n    // 自定义请求头\r\n    headers: { 'X-Requested-With': 'XMLHttpRequest' },\r\n    // 'params' 是与请求一起发送的 URL 参数\r\n    // 必须是一个简单对象或 URLSearchParams 对象\r\n    params: {\r\n        ID: 12345\r\n    },\r\n    // 'paramsSerializer'是可选方法，主要用于序列化'params'\r\n    // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)\r\n    paramsSerializer: function (params) {\r\n        return Qs.stringify(params, { arrayFormat: 'brackets' });\r\n    },\r\n    // / 'data' 是作为请求体被发送的数据\r\n    data: {\r\n        firstName: 'Fred'\r\n    },\r\n    // 'timeout' 指定请求超时的毫秒数。\r\n    // 如果请求时间超过 'timeout' 的值，则请求会被中断\r\n    timeout: 1000, // 默认值是 '0' (永不超时)\r\n    // 'withCredentials' 表示跨域请求时是否需要使用凭证\r\n    withCredentials: false // default\r\n});\r\n",
+        "description": "创建一个新的 axios 实例"
+    },
+    "axios.get()": {
+        "prefix": "axios.get",
+        "body": "axios\r\n    .get('/', {\r\n        params: {},\r\n        data: {},\r\n        headers: {},\r\n        responseType: 'json'\r\n    })\r\n    .then(res => {})\r\n    .catch(err => {})\r\n    .finally(() => {});\r\n",
+        "description": "GET 请求"
+    },
+    "axios.post()": {
+        "prefix": "axios.post",
+        "body": "axios\r\n    .post('/', {\r\n        params: {},\r\n        data: {},\r\n        headers: {},\r\n        responseType: 'json'\r\n    })\r\n    .then(res => {})\r\n    .catch(err => {})\r\n    .finally(() => {});\r\n",
+        "description": "取消请求"
+    },
+    "controller.abort()": {
+        "prefix": "controller.abort",
+        "body": "const controller = new AbortController();\r\naxios.get('/', {\r\n    signal: controller.signal\r\n});\r\ncontroller.abort();\r\n",
+        "description": "取消请求"
+    },
     "console.log()": {
         "prefix": "clg",
         "body": "console.log($1, `$1`);\r\n",

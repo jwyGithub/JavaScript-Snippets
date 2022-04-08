@@ -2,7 +2,7 @@
     "name": "javascript-snippets-self",
     "displayName": "JavaScript-Snippets",
     "description": "JavaScript Snippets for MDN",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "scripts": {
         "build": "node src/index.js && node src/output/markdown.js"
     },
