@@ -2,7 +2,7 @@
     "name": "javascript-snippets-self",
     "displayName": "JavaScript-Snippets",
     "description": "JavaScript Snippets for MDN",
-    "version": "0.0.8",
+    "version": "0.1.0",
     "scripts": {
         "generator:snippets": "tsc scripts/generatorSnippets.ts && node scripts/generatorSnippets.js",
         "generator:markdown": "tsc scripts/generatorMarkdown.ts && node scripts/generatorMarkdown.js",
@@ -10,16 +10,11 @@
         "vscode:prepublish": "npm run package",
         "compile": "webpack",
         "watch": "webpack --watch",
-        "package": "webpack --mode production --devtool hidden-source-map",
-        "compile-tests": "tsc -p . --outDir out",
-        "watch-tests": "tsc -p . -w --outDir out",
-        "pretest": "npm run compile-tests && npm run compile && npm run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
+        "package": "webpack --mode production --devtool hidden-source-map"
     },
     "icon": "icon/javascript.png",
     "engines": {
-        "vscode": "^1.0.0"
+        "vscode": "^1.68.0"
     },
     "categories": [
         "Snippets"
@@ -53,6 +48,10 @@
             },
             {
                 "language": "typescriptreact",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+                "language": "vue",
                 "path": "./snippets/snippets.code-snippets"
             }
         ],
